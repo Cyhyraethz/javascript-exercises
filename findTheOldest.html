@@ -6,7 +6,95 @@
   </head>
   <body>
     <script>
-      
+      // Find the oldest function
+      const findTheOldest = people => {
+        let oldest = people[0];
+        people.forEach(person => {
+          let personAge;
+          let oldestAge;
+          if (!person.yearOfDeath) {
+            personAge = new Date().getFullYear() - person.yearOfBirth;
+          } else {
+            personAge = person.yearOfDeath - person.yearOfBirth;
+          }
+          if (!oldest.yearOfDeath) {
+            oldestAge = new Date().getFullYear() - oldest.yearOfBirth;
+          } else {
+            oldestAge = oldest.yearOfDeath - oldest.yearOfBirth;
+          }
+          if (personAge > oldestAge) {
+            oldest = person;
+          }
+        });
+        return oldest;
+      };
+
+      // Test 1: find the oldest person (should be 'Ray')
+      const firstPeople = [
+        {
+          name: 'Carly',
+          yearOfBirth: 1942,
+          yearOfDeath: 1970
+        },
+        {
+          name: 'Ray',
+          yearOfBirth: 1962,
+          yearOfDeath: 2011
+        },
+        {
+          name: 'Jane',
+          yearOfBirth: 1912,
+          yearOfDeath: 1941
+        }
+      ];
+      console.log('Test 1: find the oldest person (should be "Ray")');
+      console.log(findTheOldest(firstPeople));
+      console.log('\n\n\n');
+
+      // Test 2: find the oldest person if someone is still living (should be 'Ray')
+      const secondPeople = [
+        {
+          name: 'Carly',
+          yearOfBirth: 2018
+        },
+        {
+          name: 'Ray',
+          yearOfBirth: 1962,
+          yearOfDeath: 2011
+        },
+        {
+          name: 'Jane',
+          yearOfBirth: 1912,
+          yearOfDeath: 1941
+        }
+      ];
+      console.log(
+        'Test 2: find the oldest person if someone is still living (should be "Ray")'
+      );
+      console.log(findTheOldest(secondPeople));
+      console.log('\n\n\n');
+
+      // Test 3: find the oldest person if the oldest is still living (should be 'Carly')
+      const thirdPeople = [
+        {
+          name: 'Carly',
+          yearOfBirth: 1066
+        },
+        {
+          name: 'Ray',
+          yearOfBirth: 1962,
+          yearOfDeath: 2011
+        },
+        {
+          name: 'Jane',
+          yearOfBirth: 1912,
+          yearOfDeath: 1941
+        }
+      ];
+      console.log(
+        'Test 3: find the oldest person if the oldest is still living (should be "Carly")'
+      );
+      console.log(findTheOldest(thirdPeople));
     </script>
   </body>
 </html>
