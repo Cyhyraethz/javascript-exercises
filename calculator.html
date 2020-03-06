@@ -9,18 +9,38 @@
       function add(a, b) {
         return a + b;
       }
+      console.log('5 + 5 = 10');
+      console.log(add(5, 5));
+      console.log('\n');
+
       function subtract(a, b) {
         return a - b;
       }
+      console.log('5 - 5 = 0');
+      console.log(subtract(5, 5));
+      console.log('\n');
+
       function sum(...theArgs) {
         return theArgs.reduce((a, b) => a + b);
       }
+      console.log('5 + 5 + 5 = 15');
+      console.log(sum(5, 5, 5));
+      console.log('\n');
+
       function multiply(a, b) {
         return a * b;
       }
+      console.log('5 * 5 = 25');
+      console.log(multiply(5, 5));
+      console.log('\n');
+
       function power(a, b) {
         return Math.pow(a, b);
       }
+      console.log('5 to the power of 5 = 3125' + '\n' + '(5 * 5 * 5 * 5 * 5)');
+      console.log(power(5, 5));
+      console.log('\n');
+
       function factorial(a) {
         let total = a;
         a -= 1;
@@ -30,7 +50,8 @@
         }
         return total;
       }
-      module.exports = { add, subtract, sum, multiply, power, factorial };
+      console.log('5 factorial = 120' + '\n' + '(5 * 4 * 3 * 2 * 1)');
+      console.log(factorial(5));
     </script>
   </body>
 </html>
