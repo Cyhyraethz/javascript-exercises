@@ -7,8 +7,24 @@
   <body>
     <script>
       const fibonacci = num => {
-        return num;
+        let sequence = [1, 1];
+        for (let i = 0; i < num; i++) {
+          let ultimate = sequence[sequence.length - 1];
+          let penultimate = sequence[sequence.length - 2];
+          sequence.push(ultimate + penultimate);
+        }
+        return sequence[num - 1];
       };
+      console.log(
+        'First test, fibonacci(4) should return the 4th fibonacci number (3)'
+      );
+      console.log(fibonacci(4));
+      console.log('\n');
+      console.log(
+        'Second test, fibonacci(6) should return the 6th fibonacci number (8)'
+      );
+      console.log(fibonacci(6));
+      console.log('\n');
     </script>
   </body>
 </html>
