@@ -1,0 +1,31 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const palindrome = str => {
+        let frontward = str
+          .split('')
+          .filter(f => /[a-zA-Z]/.test(f))
+          .join('')
+          .toLowerCase();
+        let backward = str
+          .split('')
+          .reverse()
+          .filter(b => /[a-zA-Z]/.test(b))
+          .join('')
+          .toLowerCase();
+        console.log(frontward);
+        console.log(backward);
+        return frontward === backward ? true : false;
+      };
+      console.log(palindrome('A man, a plan, a canal, Panama.'));
+      console.log(palindrome('Mr. Owl ate my metal worm.'));
+      console.log(palindrome('This is not a palindrome.'));
+      console.log(palindrome('This is not a palindrome either.'));
+    </script>
+  </body>
+</html>
