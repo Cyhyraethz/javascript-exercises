@@ -1,0 +1,105 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const lowerCaseAlphabet = [
+        'a',
+        'b',
+        'c',
+        'd',
+        'e',
+        'f',
+        'g',
+        'h',
+        'i',
+        'j',
+        'k',
+        'l',
+        'm',
+        'n',
+        'o',
+        'p',
+        'q',
+        'r',
+        's',
+        't',
+        'u',
+        'v',
+        'w',
+        'x',
+        'y',
+        'z'
+      ];
+      const upperCaseAlphabet = [
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G',
+        'H',
+        'I',
+        'J',
+        'K',
+        'L',
+        'M',
+        'N',
+        'O',
+        'P',
+        'Q',
+        'R',
+        'S',
+        'T',
+        'U',
+        'V',
+        'W',
+        'X',
+        'Y',
+        'Z'
+      ];
+      const cipher = (str, num) => {
+        let arr = str.split('');
+        for (let i = 0; i < arr.length; i++) {
+          if (
+            lowerCaseAlphabet.indexOf(arr[i]) > 0 &&
+            lowerCaseAlphabet.indexOf(arr[i]) + num <= 25
+          ) {
+            arr.splice(
+              i,
+              1,
+              lowerCaseAlphabet[lowerCaseAlphabet.indexOf(arr[i]) + num]
+            );
+          } else if (lowerCaseAlphabet.indexOf(arr[i]) + num > 25) {
+            arr.splice(
+              i,
+              1,
+              lowerCaseAlphabet[lowerCaseAlphabet.indexOf(arr[i]) + num - 26]
+            );
+          } else if (
+            upperCaseAlphabet.indexOf(arr[i]) > 0 &&
+            upperCaseAlphabet.indexOf(arr[i]) + num <= 25
+          ) {
+            arr.splice(
+              i,
+              1,
+              upperCaseAlphabet[upperCaseAlphabet.indexOf(arr[i]) + num]
+            );
+          } else if (upperCaseAlphabet.indexOf(arr[i]) + num > 25) {
+            arr.splice(
+              i,
+              1,
+              upperCaseAlphabet[upperCaseAlphabet.indexOf(arr[i]) + num - 26]
+            );
+          }
+        }
+        return arr.join('');
+      };
+      console.log(cipher('Hello, World', 5));
+    </script>
+  </body>
+</html>
